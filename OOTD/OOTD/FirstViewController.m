@@ -29,12 +29,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Infos importante" message:@"Oukache est un gros branleur !!!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Infos importante" message:@"Oukache i sla péte avec sa montre !!!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Infos importante" message:@"Thang aussi :p" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Infos importante" message:@"Thang à la mm coupe qu'adolf !" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
 
