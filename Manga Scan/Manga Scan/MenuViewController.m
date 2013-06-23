@@ -22,8 +22,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 2;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -32,20 +36,10 @@
     switch (indexPath.row) {
         case 0:
             cell.imageView.image=[UIImage imageNamed:@""];
-            cell.textLabel.text=@"TOP";
-            cell.detailTextLabel.text=@"Mangas les plus consultés";
-            break;
-        case 1:
-            cell.imageView.image=[UIImage imageNamed:@""];
             cell.textLabel.text=@"FAVORIS";
             cell.detailTextLabel.text=@"Vos mangas favoris";
             break;
-        case 2:
-            cell.imageView.image=[UIImage imageNamed:@""];
-            cell.textLabel.text=@"GENRE";
-            cell.detailTextLabel.text=@"Faite une recherche par genre";
-            break;
-        case 3:
+        case 1:
             cell.imageView.image=[UIImage imageNamed:@""];
             cell.textLabel.text=@"TOUT";
             cell.detailTextLabel.text=@"Faite une recherche sur tout les mangas";
@@ -64,15 +58,9 @@
     UITableViewController *controller;
     switch (indexPath.row) {
         case 0:
-            controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"TopMangaViewController"];
-            break;
-        case 1:
             controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"MangasFavorisViewController"];
             break;
-        case 2:
-            controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"GenreViewController"];
-            break;
-        case 3:
+        case 1:
             controller = [mainStoryboard instantiateViewControllerWithIdentifier:@"MangasViewController"];
             break;
         default:

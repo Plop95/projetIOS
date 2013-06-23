@@ -18,6 +18,10 @@
 		8DA20296177700CA00D7D554 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA20295177700CA00D7D554 /* Default-568h@2x.png */; };
 		8DA20299177700CA00D7D554 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA20297177700CA00D7D554 /* MainStoryboard.storyboard */; };
 		8DA2029C177700CA00D7D554 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2029B177700CA00D7D554 /* MenuViewController.m */; };
+		8DA202A417772AEC00D7D554 /* MangasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA202A317772AEC00D7D554 /* MangasViewController.m */; };
+		8DA202AC17778D9B00D7D554 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA202AB17778D9B00D7D554 /* CustomCollectionViewCell.m */; };
+		8DA202AF17778DE700D7D554 /* ChapitreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA202AE17778DE700D7D554 /* ChapitreViewController.m */; };
+		8DA202B217779D7D00D7D554 /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA202B117779D7D00D7D554 /* ImagesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,15 @@
 		8DA20298177700CA00D7D554 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8DA2029A177700CA00D7D554 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		8DA2029B177700CA00D7D554 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		8DA202A217772AEC00D7D554 /* MangasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangasViewController.h; sourceTree = "<group>"; };
+		8DA202A317772AEC00D7D554 /* MangasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangasViewController.m; sourceTree = "<group>"; };
+		8DA202A6177736BD00D7D554 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		8DA202AA17778D9B00D7D554 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		8DA202AB17778D9B00D7D554 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		8DA202AD17778DE700D7D554 /* ChapitreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapitreViewController.h; sourceTree = "<group>"; };
+		8DA202AE17778DE700D7D554 /* ChapitreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapitreViewController.m; sourceTree = "<group>"; };
+		8DA202B017779D7D00D7D554 /* ImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesViewController.h; sourceTree = "<group>"; };
+		8DA202B117779D7D00D7D554 /* ImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +102,15 @@
 				8DA2029A177700CA00D7D554 /* MenuViewController.h */,
 				8DA2029B177700CA00D7D554 /* MenuViewController.m */,
 				8DA20286177700CA00D7D554 /* Supporting Files */,
+				8DA202A217772AEC00D7D554 /* MangasViewController.h */,
+				8DA202A317772AEC00D7D554 /* MangasViewController.m */,
+				8DA202A6177736BD00D7D554 /* Constant.h */,
+				8DA202AA17778D9B00D7D554 /* CustomCollectionViewCell.h */,
+				8DA202AB17778D9B00D7D554 /* CustomCollectionViewCell.m */,
+				8DA202AD17778DE700D7D554 /* ChapitreViewController.h */,
+				8DA202AE17778DE700D7D554 /* ChapitreViewController.m */,
+				8DA202B017779D7D00D7D554 /* ImagesViewController.h */,
+				8DA202B117779D7D00D7D554 /* ImagesViewController.m */,
 			);
 			path = "Manga Scan";
 			sourceTree = "<group>";
@@ -176,6 +198,10 @@
 				8DA2028C177700CA00D7D554 /* main.m in Sources */,
 				8DA20290177700CA00D7D554 /* AppDelegate.m in Sources */,
 				8DA2029C177700CA00D7D554 /* MenuViewController.m in Sources */,
+				8DA202A417772AEC00D7D554 /* MangasViewController.m in Sources */,
+				8DA202AC17778D9B00D7D554 /* CustomCollectionViewCell.m in Sources */,
+				8DA202AF17778DE700D7D554 /* ChapitreViewController.m in Sources */,
+				8DA202B217779D7D00D7D554 /* ImagesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
