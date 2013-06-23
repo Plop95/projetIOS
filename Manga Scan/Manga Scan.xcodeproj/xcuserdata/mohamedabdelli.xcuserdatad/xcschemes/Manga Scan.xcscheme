@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D842461174F52C000A904E6"
-               BuildableName = "OOTD.app"
-               BlueprintName = "OOTD"
-               ReferencedContainer = "container:OOTD.xcodeproj">
+               BlueprintIdentifier = "8DA2027B177700CA00D7D554"
+               BuildableName = "Manga Scan.app"
+               BlueprintName = "Manga Scan"
+               ReferencedContainer = "container:Manga Scan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D842461174F52C000A904E6"
-            BuildableName = "OOTD.app"
-            BlueprintName = "OOTD"
-            ReferencedContainer = "container:OOTD.xcodeproj">
+            BlueprintIdentifier = "8DA2027B177700CA00D7D554"
+            BuildableName = "Manga Scan.app"
+            BlueprintName = "Manga Scan"
+            ReferencedContainer = "container:Manga Scan.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D842461174F52C000A904E6"
-            BuildableName = "OOTD.app"
-            BlueprintName = "OOTD"
-            ReferencedContainer = "container:OOTD.xcodeproj">
+            BlueprintIdentifier = "8DA2027B177700CA00D7D554"
+            BuildableName = "Manga Scan.app"
+            BlueprintName = "Manga Scan"
+            ReferencedContainer = "container:Manga Scan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D842461174F52C000A904E6"
-            BuildableName = "OOTD.app"
-            BlueprintName = "OOTD"
-            ReferencedContainer = "container:OOTD.xcodeproj">
+            BlueprintIdentifier = "8DA2027B177700CA00D7D554"
+            BuildableName = "Manga Scan.app"
+            BlueprintName = "Manga Scan"
+            ReferencedContainer = "container:Manga Scan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

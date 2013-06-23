@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:OOTD.xcodeproj">
+      location = "self:Manga Scan.xcodeproj">
    </FileRef>
 </Workspace>
