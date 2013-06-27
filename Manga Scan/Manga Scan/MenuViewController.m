@@ -22,6 +22,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark UITableView DataSource
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -50,6 +52,8 @@
     
     return cell;
 }
+
+#pragma mark UITableView Delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

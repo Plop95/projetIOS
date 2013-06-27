@@ -40,11 +40,10 @@
 	// Do any additional setup after loading the view.
 }
 
+//Permet de récupérer toute les images du chapitre sélectionné
 -(void)wsAllImages{
-    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [activityView setFrame:CGRectMake(self.view.frame.size.width/2-activityView.frame.size.width/2, self.view.frame.size.height/2-activityView.frame.size.height/2, activityView.frame.size.width, activityView.frame.size.height)];
-    [activityView startAnimating];
-    [self.scrollView addSubview:activityView];
+
+    [_activityView startAnimating];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *_urlString = [NSString stringWithFormat:@"%@%@",wsGetAllImages,chapitreID];
@@ -69,8 +68,7 @@
                                    //Do something with returned array
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        
-                                       [activityView stopAnimating];
-                                       [activityView removeFromSuperview];
+                                       [_activityView stopAnimating];
                                        
                                        NSArray *interArray = [[NSArray alloc] initWithArray:[_reponseDic valueForKeyPath:@"images"]];
                                        
@@ -97,6 +95,7 @@
                            }];
 }
 
+//Charge l'image en asynchrone + gestion du cache
 -(void)afficheAsyncImageFromURL:(NSString *)url{
     if ([imagesDictionary objectForKey:url])
         
@@ -110,10 +109,9 @@
     else
     {
         // 4
-        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [activityView setFrame:CGRectMake(self.view.frame.size.width/2-activityView.frame.size.width/2, self.view.frame.size.height/2-activityView.frame.size.height/2, activityView.frame.size.width, activityView.frame.size.height)];
-        [activityView startAnimating];
-        [self.scrollView addSubview:activityView];
+        
+        [_activityView startAnimating];
+
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
@@ -136,8 +134,8 @@
                                              dispatch_sync(dispatch_get_main_queue(), ^{
                                                  _imgView.image = [imagesDictionary objectForKey:url];
                                                  _scrollView.contentSize = CGSizeMake(_imgView.frame.size.width, _imgView.frame.size.height);
-                                                 [activityView stopAnimating];
-                                                 [activityView removeFromSuperview];
+                                                 
+                                                 [_activityView stopAnimating];
                                                  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                                              });
                                          });
@@ -151,57 +149,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"%f %f",scrollView.contentOffset.x,_imgView.frame.size.width);
-    
-    if (currentPage<imgArray.count-1 && currentPage>0) {
-        if ((scrollView.contentOffset.x+self.view.frame.size.width)>_imgView.frame.size.width+30) {
-            [UIView transitionFromView:self.view toView:self.view duration:0.5 options:UIViewAnimationOptionTransitionCurlUp completion:^(BOOL finished){
-                currentPage++;
-                
-                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
-                [self afficheAsyncImageFromURL:url];
-            }];
-        }
-        
-        else if (scrollView.contentOffset.x<-30) {
-            [UIView transitionFromView:self.view toView:self.view duration:0.5 options:UIViewAnimationOptionTransitionCurlDown completion:^(BOOL finished){
-                currentPage--;
-                
-                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
-                [self afficheAsyncImageFromURL:url];
-            }];
-        }
-    }
-    
-    else if (currentPage==imgArray.count-1) {
-        if (scrollView.contentOffset.x<-30) {
-            [UIView transitionFromView:self.view toView:self.view duration:0.5 options:UIViewAnimationOptionTransitionCurlDown completion:^(BOOL finished){
-                currentPage--;
-                
-                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
-                [self afficheAsyncImageFromURL:url];
-            }];
-        }
-    }
-    
-    else if (currentPage==0) {
-        if ((scrollView.contentOffset.x+self.view.frame.size.width)>_imgView.frame.size.width+30) {
-            
-            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
-                currentPage++;
-                
-                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
-                [self afficheAsyncImageFromURL:url];
-            }completion:nil];
-        }
-    }
-}
+#pragma mark UIScrollView Delegate
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return _imgView;
 }
 
+//Permet d'afficher la tab bar au bas de l'écran pour changer de page
 -(void)tapScrollView:(UITapGestureRecognizer *)gesture{
     if (_toolbar.alpha==0.0) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -212,6 +166,47 @@
             [_toolbar setAlpha:0.0];
         }];
     }
+}
+
+//Vérifie si on est sur la première ou dernière page : permet de cacher le premier ou second bouton
+-(void)checkFirstAndLastPage{
+    if (currentPage!=0) {
+        _barButtonPrec.enabled=YES;
+    }else{
+        _barButtonPrec.enabled=NO;
+    }
+    if (currentPage!=imgArray.count-1) {
+        _barButtonSuiv.enabled=YES;
+    }else{
+        _barButtonSuiv.enabled=NO;
+    }
+}
+
+- (IBAction)clickPrec:(id)sender {
+    
+    [UIView transitionWithView:self.scrollView duration:1.0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
+        currentPage--;
+        self.imgView.image=nil;
+        NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
+        [self afficheAsyncImageFromURL:url];
+        
+        [self checkFirstAndLastPage];
+
+    }completion:nil];
+}
+- (IBAction)clickSuiv:(id)sender {
+    
+    [UIView transitionWithView:self.scrollView duration:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+        currentPage++;
+        self.imgView.image=nil;
+
+        NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
+        
+        [self afficheAsyncImageFromURL:url];
+        
+        [self checkFirstAndLastPage];
+
+    }completion:nil];
 }
 
 @end

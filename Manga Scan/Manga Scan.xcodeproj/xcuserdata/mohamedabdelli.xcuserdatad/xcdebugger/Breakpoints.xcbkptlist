@@ -4,17 +4,17 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Manga Scan/ImagesViewController.m"
-         timestampString = "393980430.816417"
+         filePath = "Manga Scan/AppDelegate.m"
+         timestampString = "394059050.002308"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
-         landmarkName = "-scrollViewDidScroll:"
-         landmarkType = "5">
+         startingLineNumber = "11"
+         endingLineNumber = "11"
+         landmarkName = "@implementation AppDelegate"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

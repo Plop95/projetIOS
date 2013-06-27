@@ -10,8 +10,10 @@
 #import "CustomCollectionViewCell.h"
 #import "Constant.h"
 #import "ImagesViewController.h"
+#import "AppDelegate.h"
+#import "Manga.h"
 
-@interface ChapitreViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
+@interface ChapitreViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>{
     NSArray *chapitreArray;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -21,5 +23,6 @@
 @property(strong,nonatomic)NSString *mangaName;
 
 -(void)wsAllChapitres;
+-(void)addToFavorite;
 
 @end

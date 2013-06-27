@@ -20,9 +20,13 @@
 @property(strong,nonatomic)NSString* numChap;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButtonPrec;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButtonSuiv;
 
 -(void)wsAllImages;
 -(void)afficheAsyncImageFromURL:(NSString*)url;
 -(void)tapScrollView:(UITapGestureRecognizer*)gesture;
+-(void)checkFirstAndLastPage;
 
 @end

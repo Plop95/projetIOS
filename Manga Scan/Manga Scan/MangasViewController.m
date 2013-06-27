@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad
 {
+    
     [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     [self wsAllMangas];
@@ -28,6 +29,7 @@
     [super viewDidLoad];
 }
 
+//Permet de récupérer la liste de tout les mangas et les sauvegarder dans un NSArray
 -(void)wsAllMangas{
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityView setFrame:CGRectMake(self.view.frame.size.width/2-activityView.frame.size.width/2, self.view.frame.size.height/2-activityView.frame.size.height/2, activityView.frame.size.width, activityView.frame.size.height)];
@@ -57,13 +59,16 @@
                                    //Do something with returned array
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        
+                                       allMangasArray = [[NSArray alloc] initWithArray:[_reponseDic valueForKeyPath:@"manga"]];
+                                       
+                                       NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"t" ascending:YES];
+                                       allMangasArray=[allMangasArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+                                       
+                                       [self.tableView reloadData];
+                                       
                                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                                        [activityView stopAnimating];
                                        [activityView removeFromSuperview];
-                                       
-                                       allMangasArray = [[NSArray alloc] initWithArray:[_reponseDic valueForKeyPath:@"manga"]];
-                                       
-                                       [self.tableView reloadData];
                                    });
                                }
                                
@@ -152,5 +157,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
                                     predicateWithFormat:@"t contains[cd] %@",
                                     searchText];
     searchResults = [allMangasArray filteredArrayUsingPredicate:resultPredicate];
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"t" ascending:YES];
+    searchResults=[searchResults sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
 }
 @end

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D3C2FDC177CAC6300090888 /* fleche_droite.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C2FDB177CAC6300090888 /* fleche_droite.png */; };
+		8D3C2FDE177CAC6E00090888 /* fleche_gauche.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C2FDD177CAC6E00090888 /* fleche_gauche.png */; };
+		8D3C2FE0177CAD0200090888 /* icone_chap.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C2FDF177CAD0200090888 /* icone_chap.png */; };
+		8D9B95EB177CDAA900A44F24 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B95E9177CDAA900A44F24 /* Model.xcdatamodeld */; };
+		8D9B95ED177CDC5100A44F24 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9B95EC177CDC5100A44F24 /* CoreData.framework */; };
+		8D9B95F2177CE34D00A44F24 /* Manga.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B95F1177CE34D00A44F24 /* Manga.m */; };
+		8D9B95F5177CE48800A44F24 /* MangaFavorisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B95F4177CE48800A44F24 /* MangaFavorisViewController.m */; };
 		8DA20280177700CA00D7D554 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA2027F177700CA00D7D554 /* UIKit.framework */; };
 		8DA20282177700CA00D7D554 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA20281177700CA00D7D554 /* Foundation.framework */; };
 		8DA20284177700CA00D7D554 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA20283177700CA00D7D554 /* CoreGraphics.framework */; };
@@ -27,6 +34,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D3C2FDB177CAC6300090888 /* fleche_droite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fleche_droite.png; sourceTree = "<group>"; };
+		8D3C2FDD177CAC6E00090888 /* fleche_gauche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fleche_gauche.png; sourceTree = "<group>"; };
+		8D3C2FDF177CAD0200090888 /* icone_chap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icone_chap.png; sourceTree = "<group>"; };
+		8D9B95EA177CDAA900A44F24 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8D9B95EC177CDC5100A44F24 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8D9B95F0177CE34D00A44F24 /* Manga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manga.h; sourceTree = "<group>"; };
+		8D9B95F1177CE34D00A44F24 /* Manga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manga.m; sourceTree = "<group>"; };
+		8D9B95F3177CE48800A44F24 /* MangaFavorisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangaFavorisViewController.h; sourceTree = "<group>"; };
+		8D9B95F4177CE48800A44F24 /* MangaFavorisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangaFavorisViewController.m; sourceTree = "<group>"; };
 		8DA2027C177700CA00D7D554 /* Manga Scan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Manga Scan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA2027F177700CA00D7D554 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DA20281177700CA00D7D554 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9B95ED177CDC5100A44F24 /* CoreData.framework in Frameworks */,
 				8DA20280177700CA00D7D554 /* UIKit.framework in Frameworks */,
 				8DA20282177700CA00D7D554 /* Foundation.framework in Frameworks */,
 				8DA20284177700CA00D7D554 /* CoreGraphics.framework in Frameworks */,
@@ -70,6 +87,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D9B95EE177CE1AE00A44F24 /* Managed Classe */ = {
+			isa = PBXGroup;
+			children = (
+				8D9B95F0177CE34D00A44F24 /* Manga.h */,
+				8D9B95F1177CE34D00A44F24 /* Manga.m */,
+			);
+			name = "Managed Classe";
+			sourceTree = "<group>";
+		};
+		8D9B95EF177CE1D900A44F24 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8D3C2FDB177CAC6300090888 /* fleche_droite.png */,
+				8D3C2FDD177CAC6E00090888 /* fleche_gauche.png */,
+				8D3C2FDF177CAD0200090888 /* icone_chap.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		8DA20273177700CA00D7D554 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +128,7 @@
 		8DA2027E177700CA00D7D554 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D9B95EC177CDC5100A44F24 /* CoreData.framework */,
 				8DA2027F177700CA00D7D554 /* UIKit.framework */,
 				8DA20281177700CA00D7D554 /* Foundation.framework */,
 				8DA20283177700CA00D7D554 /* CoreGraphics.framework */,
@@ -107,7 +144,6 @@
 				8DA20297177700CA00D7D554 /* MainStoryboard.storyboard */,
 				8DA2029A177700CA00D7D554 /* MenuViewController.h */,
 				8DA2029B177700CA00D7D554 /* MenuViewController.m */,
-				8DA20286177700CA00D7D554 /* Supporting Files */,
 				8DA202A217772AEC00D7D554 /* MangasViewController.h */,
 				8DA202A317772AEC00D7D554 /* MangasViewController.m */,
 				8DA202A6177736BD00D7D554 /* Constant.h */,
@@ -117,6 +153,12 @@
 				8DA202AE17778DE700D7D554 /* ChapitreViewController.m */,
 				8DA202B017779D7D00D7D554 /* ImagesViewController.h */,
 				8DA202B117779D7D00D7D554 /* ImagesViewController.m */,
+				8D9B95F3177CE48800A44F24 /* MangaFavorisViewController.h */,
+				8D9B95F4177CE48800A44F24 /* MangaFavorisViewController.m */,
+				8D9B95EF177CE1D900A44F24 /* Images */,
+				8D9B95E9177CDAA900A44F24 /* Model.xcdatamodeld */,
+				8D9B95EE177CE1AE00A44F24 /* Managed Classe */,
+				8DA20286177700CA00D7D554 /* Supporting Files */,
 			);
 			path = "Manga Scan";
 			sourceTree = "<group>";
@@ -193,6 +235,9 @@
 				8DA20299177700CA00D7D554 /* MainStoryboard.storyboard in Resources */,
 				8DF451B3177B94C500DE6135 /* manga-scan-icon.png in Resources */,
 				8DF451B5177B959A00DE6135 /* manga-scan-icon@2.png in Resources */,
+				8D3C2FDC177CAC6300090888 /* fleche_droite.png in Resources */,
+				8D3C2FDE177CAC6E00090888 /* fleche_gauche.png in Resources */,
+				8D3C2FE0177CAD0200090888 /* icone_chap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +255,9 @@
 				8DA202AC17778D9B00D7D554 /* CustomCollectionViewCell.m in Sources */,
 				8DA202AF17778DE700D7D554 /* ChapitreViewController.m in Sources */,
 				8DA202B217779D7D00D7D554 /* ImagesViewController.m in Sources */,
+				8D9B95EB177CDAA900A44F24 /* Model.xcdatamodeld in Sources */,
+				8D9B95F2177CE34D00A44F24 /* Manga.m in Sources */,
+				8D9B95F5177CE48800A44F24 /* MangaFavorisViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +387,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8D9B95E9177CDAA900A44F24 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8D9B95EA177CDAA900A44F24 /* Model.xcdatamodel */,
+			);
+			currentVersion = 8D9B95EA177CDAA900A44F24 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8DA20274177700CA00D7D554 /* Project object */;
 }
