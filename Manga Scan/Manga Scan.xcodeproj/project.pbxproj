@@ -22,6 +22,8 @@
 		8DA202AC17778D9B00D7D554 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA202AB17778D9B00D7D554 /* CustomCollectionViewCell.m */; };
 		8DA202AF17778DE700D7D554 /* ChapitreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA202AE17778DE700D7D554 /* ChapitreViewController.m */; };
 		8DA202B217779D7D00D7D554 /* ImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA202B117779D7D00D7D554 /* ImagesViewController.m */; };
+		8DF451B3177B94C500DE6135 /* manga-scan-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF451B2177B94C500DE6135 /* manga-scan-icon.png */; };
+		8DF451B5177B959A00DE6135 /* manga-scan-icon@2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DF451B4177B959A00DE6135 /* manga-scan-icon@2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		8DA202AE17778DE700D7D554 /* ChapitreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapitreViewController.m; sourceTree = "<group>"; };
 		8DA202B017779D7D00D7D554 /* ImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesViewController.h; sourceTree = "<group>"; };
 		8DA202B117779D7D00D7D554 /* ImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesViewController.m; sourceTree = "<group>"; };
+		8DF451B2177B94C500DE6135 /* manga-scan-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "manga-scan-icon.png"; sourceTree = "<group>"; };
+		8DF451B4177B959A00DE6135 /* manga-scan-icon@2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "manga-scan-icon@2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 		8DA20273177700CA00D7D554 = {
 			isa = PBXGroup;
 			children = (
+				8DF451B4177B959A00DE6135 /* manga-scan-icon@2.png */,
+				8DF451B2177B94C500DE6135 /* manga-scan-icon.png */,
 				8DA20285177700CA00D7D554 /* Manga Scan */,
 				8DA2027E177700CA00D7D554 /* Frameworks */,
 				8DA2027D177700CA00D7D554 /* Products */,
@@ -185,6 +191,8 @@
 				8DA20294177700CA00D7D554 /* Default@2x.png in Resources */,
 				8DA20296177700CA00D7D554 /* Default-568h@2x.png in Resources */,
 				8DA20299177700CA00D7D554 /* MainStoryboard.storyboard in Resources */,
+				8DF451B3177B94C500DE6135 /* manga-scan-icon.png in Resources */,
+				8DF451B5177B959A00DE6135 /* manga-scan-icon@2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +297,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Manga Scan/Manga Scan-Prefix.pch";
 				INFOPLIST_FILE = "Manga Scan/Manga Scan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -300,7 +310,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Manga Scan/Manga Scan-Prefix.pch";
 				INFOPLIST_FILE = "Manga Scan/Manga Scan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -324,6 +336,7 @@
 				8DA202A1177700CA00D7D554 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

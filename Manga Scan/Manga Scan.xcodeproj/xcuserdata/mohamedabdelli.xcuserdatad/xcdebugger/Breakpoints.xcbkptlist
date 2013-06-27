@@ -8,12 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Manga Scan/ImagesViewController.m"
-         timestampString = "393721755.582112"
+         timestampString = "393980430.816417"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "147"
-         endingLineNumber = "147"
-         landmarkName = "-handlePinchGesture:"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
+         landmarkName = "-scrollViewDidScroll:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

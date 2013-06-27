@@ -32,7 +32,7 @@
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityView setFrame:CGRectMake(self.view.frame.size.width/2-activityView.frame.size.width/2, self.view.frame.size.height/2-activityView.frame.size.height/2, activityView.frame.size.width, activityView.frame.size.height)];
     [activityView startAnimating];
-    [self.view addSubview:activityView];
+    [self.tableView addSubview:activityView];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *_urlString = wsGetAllMangas;

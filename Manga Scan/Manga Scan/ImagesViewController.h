@@ -9,17 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "Constant.h"
 
-@interface ImagesViewController : UIViewController{
+@interface ImagesViewController : UIViewController<UIScrollViewDelegate>{
     NSArray *imgArray;
     NSMutableDictionary *imagesDictionary;
-    float lastScaleFactor;
+    int currentPage;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property(strong,nonatomic)NSString* chapitreID;
 @property(strong,nonatomic)NSString* numChap;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 -(void)wsAllImages;
 -(void)afficheAsyncImageFromURL:(NSString*)url;
+-(void)tapScrollView:(UITapGestureRecognizer*)gesture;
 
 @end

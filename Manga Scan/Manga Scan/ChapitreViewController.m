@@ -94,7 +94,7 @@
  
     CustomCollectionViewCell *cell = (CustomCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Chap %@",[[chapitreArray objectAtIndex:indexPath.row] objectAtIndex:2]];
+    cell.textLabel.text = [NSString stringWithFormat:@"Ch. %@",[[chapitreArray objectAtIndex:indexPath.row] objectAtIndex:2]];
     
     return cell;
 }

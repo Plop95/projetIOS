@@ -25,10 +25,12 @@
 - (void)viewDidLoad
 {
     self.title = [NSString stringWithFormat:@"Chapitre %@",numChap];
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScrollView:)];
+    [_scrollView addGestureRecognizer:tap];
     
-    UIPinchGestureRecognizer *pinchGesture =
-    [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
-    [_imgView addGestureRecognizer:pinchGesture];
+    _scrollView.maximumZoomScale = 4.0;
+    _scrollView.minimumZoomScale = 1.0;
     
     imagesDictionary = [[NSMutableDictionary alloc] init];
         
@@ -42,7 +44,7 @@
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityView setFrame:CGRectMake(self.view.frame.size.width/2-activityView.frame.size.width/2, self.view.frame.size.height/2-activityView.frame.size.height/2, activityView.frame.size.width, activityView.frame.size.height)];
     [activityView startAnimating];
-    [self.view addSubview:activityView];
+    [self.scrollView addSubview:activityView];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSString *_urlString = [NSString stringWithFormat:@"%@%@",wsGetAllImages,chapitreID];
@@ -67,7 +69,6 @@
                                    //Do something with returned array
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        
-                                       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                                        [activityView stopAnimating];
                                        [activityView removeFromSuperview];
                                        
@@ -87,7 +88,7 @@
                                        imgArray = [interImgArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"page" ascending:YES]]];
                                        
                                        NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:0] valueForKeyPath:@"url"]];
-                                       
+                                       currentPage=0;
                                        [self afficheAsyncImageFromURL:url];
                                        
                                    });
@@ -103,11 +104,18 @@
         
         // 3
         _imgView.image = [imagesDictionary objectForKey:url];
+        _scrollView.contentSize = CGSizeMake(_imgView.frame.size.width, _imgView.frame.size.height);
+
     }
     else
     {
         // 4
-        
+        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [activityView setFrame:CGRectMake(self.view.frame.size.width/2-activityView.frame.size.width/2, self.view.frame.size.height/2-activityView.frame.size.height/2, activityView.frame.size.width, activityView.frame.size.height)];
+        [activityView startAnimating];
+        [self.scrollView addSubview:activityView];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                        ^{
                            NSURL *imageURL = [NSURL URLWithString:url];
@@ -127,39 +135,83 @@
                                              // 8
                                              dispatch_sync(dispatch_get_main_queue(), ^{
                                                  _imgView.image = [imagesDictionary objectForKey:url];
+                                                 _scrollView.contentSize = CGSizeMake(_imgView.frame.size.width, _imgView.frame.size.height);
+                                                 [activityView stopAnimating];
+                                                 [activityView removeFromSuperview];
+                                                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                                              });
                                          });
                        });
     }
 }
 
--(IBAction) handlePinchGesture:(UIGestureRecognizer *) sender {
-    NSLog(@"Pinch");
-    CGFloat factor = [(UIPinchGestureRecognizer *) sender scale];
-    if (factor > 1) {
-        //---zooming in---
-        sender.view.transform = CGAffineTransformMakeScale(
-                                                           lastScaleFactor + (factor-1),
-                                                           lastScaleFactor + (factor-1));
-    }
-    else {
-        //---zooming out---
-        sender.view.transform = CGAffineTransformMakeScale(lastScaleFactor * factor, lastScaleFactor * factor);
-    }
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        if (factor > 1) {
-            lastScaleFactor += (factor-1);
-        } else {
-            lastScaleFactor *= factor;
-        }
-    }
-}
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"%f %f",scrollView.contentOffset.x,_imgView.frame.size.width);
+    
+    if (currentPage<imgArray.count-1 && currentPage>0) {
+        if ((scrollView.contentOffset.x+self.view.frame.size.width)>_imgView.frame.size.width+30) {
+            [UIView transitionFromView:self.view toView:self.view duration:0.5 options:UIViewAnimationOptionTransitionCurlUp completion:^(BOOL finished){
+                currentPage++;
+                
+                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
+                [self afficheAsyncImageFromURL:url];
+            }];
+        }
+        
+        else if (scrollView.contentOffset.x<-30) {
+            [UIView transitionFromView:self.view toView:self.view duration:0.5 options:UIViewAnimationOptionTransitionCurlDown completion:^(BOOL finished){
+                currentPage--;
+                
+                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
+                [self afficheAsyncImageFromURL:url];
+            }];
+        }
+    }
+    
+    else if (currentPage==imgArray.count-1) {
+        if (scrollView.contentOffset.x<-30) {
+            [UIView transitionFromView:self.view toView:self.view duration:0.5 options:UIViewAnimationOptionTransitionCurlDown completion:^(BOOL finished){
+                currentPage--;
+                
+                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
+                [self afficheAsyncImageFromURL:url];
+            }];
+        }
+    }
+    
+    else if (currentPage==0) {
+        if ((scrollView.contentOffset.x+self.view.frame.size.width)>_imgView.frame.size.width+30) {
+            
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionCurlDown animations:^{
+                currentPage++;
+                
+                NSString *url = [NSString stringWithFormat:@"%@%@",imgURL,[[imgArray objectAtIndex:currentPage] valueForKeyPath:@"url"]];
+                [self afficheAsyncImageFromURL:url];
+            }completion:nil];
+        }
+    }
+}
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return _imgView;
+}
+
+-(void)tapScrollView:(UITapGestureRecognizer *)gesture{
+    if (_toolbar.alpha==0.0) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [_toolbar setAlpha:1.0];
+        }];
+    }else{
+        [UIView animateWithDuration:0.5 animations:^{
+            [_toolbar setAlpha:0.0];
+        }];
+    }
 }
 
 @end
